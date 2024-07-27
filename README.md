@@ -1,1 +1,2 @@
-# asp-team101
+# SAGE App
+A mental health companion app
