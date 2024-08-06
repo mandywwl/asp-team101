@@ -18,6 +18,7 @@
   "homepage": "https://github.com/mandywwl/asp-team101#readme",
   "dependencies": {
     "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.7"
