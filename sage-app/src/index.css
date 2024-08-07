@@ -1,0 +1,25 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a base font size and family */
+body {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+    /* Styles for small screens */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Styles for medium screens */
+}
+
+@media (min-width: 1025px) {
+    /* Styles for large screens */
+}
