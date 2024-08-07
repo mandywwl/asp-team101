@@ -1,14 +1,31 @@
 // Landing page for the SAGE app. Provides an overview of the app and its features.
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { useNavigate } from "react-router-dom";
 import "../index.css";
 
 function Landing() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-blue-600 text-white p-6">
         <h1 className="text-4xl font-bold">Welcome to SAGE</h1>
         <p className="text-xl mt-2">Your Mental Health Companion</p>
+        <div className="flex justify-end space-x-4">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+            onClick={() => navigate("/login")}
+          >
+            Login
+          </button>
+          <button
+            className="bg-green-500 text-white px-4 py-2 rounded"
+            onClick={() => navigate("/register")}
+          >
+            Register
+          </button>
+        </div>
       </header>
       <main className="flex-grow p-6">
         <section className="mb-8">
@@ -40,7 +57,7 @@ function Landing() {
         </section>
       </main>
       <footer className="bg-gray-800 text-white p-4 text-center">
-        <p>&copy; 2022 SAGE. All rights reserved.</p>
+        <p>&copy; 2024 SAGE. All rights reserved.</p>
       </footer>
     </div>
   );

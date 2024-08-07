@@ -5,10 +5,10 @@ function NavMenu() {
   return (
     <nav>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/homepage">Homepage</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/register">Register</Link></li>
+        <li><Link to="/homepage">Home</Link></li>
+        <li><Link to="/insights">Insights</Link></li>
+        <li><Link to="/chat">Chatbot</Link></li>
+        <li><Link to="/track">Tracker</Link></li>
         <li><Link to="/profile">Profile</Link></li>
       </ul>
     </nav>
