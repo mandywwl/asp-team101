@@ -1,4 +1,4 @@
-// Landing page for the SAGE app. Provides an overview of the app and its features.
+// Root page of the SAGE app. Provides an overview of the app and its features.
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { useNavigate } from "react-router-dom";
