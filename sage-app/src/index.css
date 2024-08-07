@@ -1,15 +1,6 @@
-/* Reset default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Set a base font size and family */
-body {
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Add responsive styles */
 @media (max-width: 768px) {
