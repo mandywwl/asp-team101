@@ -1,0 +1,1 @@
+// Main entry point of application. This file is responsible for setting up the server and connecting to the database.
