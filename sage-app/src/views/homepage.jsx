@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'
-import '../index.css'
-
-import NavMenu from '../components/NavMenu.jsx';
+import '../index.css';
 
 function Homepage() {
     return (
