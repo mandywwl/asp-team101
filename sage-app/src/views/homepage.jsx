@@ -5,8 +5,7 @@ import '../index.css';
 function Homepage() {
     return (
         <div>
-            {/* <NavMenu />
-            Your content goes here */}
+            {/* Your content goes here */}
         </div>
     );
 }

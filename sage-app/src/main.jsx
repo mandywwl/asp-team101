@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import{ BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import App from './views/App.jsx';
+// import{ BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Landing from './views/Landing.jsx';
 import Homepage from './views/Homepage.jsx';
 import Login from './views/Login.jsx';
 import Register from './views/Register.jsx';
@@ -25,6 +25,6 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <Landing />
   </React.StrictMode>
 )
