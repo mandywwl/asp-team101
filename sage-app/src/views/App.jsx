@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "../index.css";
 
-function Landing() {
+function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-blue-600 text-white p-6">
@@ -46,4 +46,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default App;

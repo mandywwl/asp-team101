@@ -7,8 +7,8 @@ import NavMenu from '../components/NavMenu.jsx';
 function Homepage() {
     return (
         <div>
-            <NavMenu />
-            {/* Your content goes here */}
+            {/* <NavMenu />
+            Your content goes here */}
         </div>
     );
 }
