@@ -4,6 +4,7 @@ import App from './views/App.jsx'
 import Homepage from './views/homepage.jsx'
 import Login from './views/login.jsx'
 import Register from './views/register.jsx'
+import Profile from './views/profile.jsx'
 
 import './index.css'
 
