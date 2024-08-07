@@ -1,1 +1,11 @@
-// Corresponds to index.html for landing page
+import React from 'react';
+
+function App() {
+    return (
+        <div>
+            {/* Your content goes here */}
+        </div>
+    );
+}
+
+export default App;
