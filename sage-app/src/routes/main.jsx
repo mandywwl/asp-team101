@@ -10,7 +10,7 @@ import Login from '../views/Login.jsx';
 import Register from '../views/Register.jsx';
 import Profile from '../views/Profile.jsx';
 
-import './index.css';
+import '../index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
