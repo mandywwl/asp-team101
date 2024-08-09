@@ -1,3 +1,4 @@
+// This is the main route handler and implements the routing for the application.
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
