@@ -2,15 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add responsive styles */
-@media (max-width: 768px) {
-    /* Styles for small screens */
+/* Colour Palette 
+#defcf9
+#b7dbd6
+#7cc0cf
+#90d1c8
+#46cebc
+#2db479
+#65bab3
+#243531
+*/
+
+
+/* Custom CSS */
+
+#WelcomeBanner {
+    background-color: #7cc0cf;
+    color: #243531;
+}
+#LoginButton {
+    background-color: #46cebc;
+}
+#RegisterButton {
+    background-color: #2db479;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-    /* Styles for medium screens */
+main {
+    background-color: #b7dbd6;
 }
 
-@media (min-width: 1025px) {
-    /* Styles for large screens */
+nav {
+    background-color: #7cc0cf;
 }

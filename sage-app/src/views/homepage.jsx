@@ -6,8 +6,8 @@ import '../index.css';
 
 function Homepage() {
     return (
-        <div>
-            <NavMenu />
+        <div className=''>
+            <NavMenu className='md:max-xl:order-first sm:order-last' />
             {/* Your content goes here */}
         </div>
     );

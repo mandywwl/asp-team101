@@ -9,25 +9,34 @@ function Landing() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-blue-600 text-white p-6">
-        <h1 className="text-4xl font-bold">Welcome to SAGE</h1>
-        <p className="text-xl mt-2">Your Mental Health Companion</p>
-        <div className="flex justify-end space-x-4">
+      <header id="WelcomeBanner" className="p-6">
+        <div>
+          <div>
+            <img src="/sage-logo.png" alt="SAGE logo" className="w-24 h-24" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold drop-shadow-lg">Welcome to SAGE</h1>
+            <p className="text-xl mt-2 mb-4 drop-shadow-lg">Your Mental Health Companion</p>
+          </div>
+        </div>
+        <div className="md:flex md:justify-end space-x-4">
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded"
+            id="LoginButton"
+            className="text-white px-4 py-2 rounded drop-shadow-sm"
             onClick={() => navigate("/login")}
           >
             Login
           </button>
           <button
-            className="bg-green-500 text-white px-4 py-2 rounded"
+            id="RegisterButton"
+            className="text-white px-4 py-2 rounded drop-shadow-sm"
             onClick={() => navigate("/register")}
           >
             Register
           </button>
         </div>
       </header>
-      <main className="flex-grow p-6">
+      <main className="flex-grow p-6 text-slate-700">
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">About SAGE</h2>
           <p className="text-lg">

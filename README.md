@@ -1,6 +1,6 @@
 ### SAGE App
 
-Welcome to SAGE, your mental health companion app designed to support and enhance your mental well-being.
+Welcome to SAGE, a mental health companion app designed to support and enhance your mental well-being.
 
 ## Features
 
@@ -11,7 +11,7 @@ Welcome to SAGE, your mental health companion app designed to support and enhanc
 - **Resource Library**: Explore articles, videos, and other resources on mental health topics.
 - **Emergency Contacts**: Quickly access emergency contacts and hotlines when needed.
 
-## Installation
+## Installation (For Dev Collaboration)
 
 1. Clone the repository:
    ```bash
@@ -27,20 +27,12 @@ Welcome to SAGE, your mental health companion app designed to support and enhanc
    ```
 4. Start the application:
    ```bash
-   npm start
+   npm run dev
    ```
-
-## Usage
-
-1. Open the app on your device.
-2. Create an account or log in if you already have one.
-3. Start by completing your first daily check-in.
-4. Explore the guided meditations and resource library.
-5. Use the journal feature to document your thoughts and progress.
 
 ## Contributing
 
-We welcome contributions! Please follow these steps:
+Please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch:
