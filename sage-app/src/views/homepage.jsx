@@ -6,7 +6,7 @@ import '../index.css';
 
 function Homepage() {
     return (
-        <div className=''>
+        <div>
             <NavMenu className='md:max-xl:order-first sm:order-last' />
             {/* Your content goes here */}
         </div>

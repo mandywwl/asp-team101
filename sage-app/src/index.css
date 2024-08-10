@@ -8,27 +8,40 @@
 #7cc0cf
 #90d1c8
 #46cebc
+#2b7b70
 #2db479
+#218057
 #65bab3
 #243531
 */
 
 
+
 /* Custom CSS */
 
 #WelcomeBanner {
-    background-color: #7cc0cf;
-    color: #243531;
+    background-color: #b7dbd6;
 }
 #LoginButton {
     background-color: #46cebc;
 }
+#LoginButton:hover {
+    background-color: #2b7b70;
+}
+
 #RegisterButton {
     background-color: #2db479;
 }
+#RegisterButton:hover {
+    background-color: #218057;
+}
 
 main {
-    background-color: #b7dbd6;
+    background-color: #defcf9;
+}
+
+#LoginBackground {
+    background-color: #defcf9;
 }
 
 nav {

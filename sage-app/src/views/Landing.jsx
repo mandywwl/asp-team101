@@ -10,14 +10,10 @@ function Landing() {
   return (
     <div className="min-h-screen flex flex-col">
       <header id="WelcomeBanner" className="p-6">
-        <div>
-          <div>
-            <img src="/sage-logo.png" alt="SAGE logo" className="w-24 h-24" />
-          </div>
-          <div>
-            <h1 className="text-4xl font-bold drop-shadow-lg">Welcome to SAGE</h1>
-            <p className="text-xl mt-2 mb-4 drop-shadow-lg">Your Mental Health Companion</p>
-          </div>
+        <div className="mb-4">
+            <img src="/sage-logo.png" alt="SAGE logo" className="w-24 h-24 hidden md:block" />
+            <h1 className="text-lime-800 text-4xl font-bold">Welcome to SAGE</h1>
+            <p className="text-lime-800 text-xl mt-2">Your Mental Health Companion</p>
         </div>
         <div className="md:flex md:justify-end space-x-4">
           <button
