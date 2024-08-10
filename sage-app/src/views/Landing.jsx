@@ -12,8 +12,8 @@ function Landing() {
       <header id="WelcomeBanner" className="p-6">
         <div className="mb-4">
             <img src="/sage-logo.png" alt="SAGE logo" className="w-24 h-24 hidden md:block" />
-            <h1 className="text-lime-800 text-4xl font-bold">Welcome to SAGE</h1>
-            <p className="text-lime-800 text-xl mt-2">Your Mental Health Companion</p>
+            <h1 className="text-teal-700 text-4xl font-bold">Welcome to SAGE</h1>
+            <p className="text-teal-700 text-xl mt-2">Your Mental Health Companion</p>
         </div>
         <div className="md:flex md:justify-end space-x-4">
           <button
@@ -32,7 +32,7 @@ function Landing() {
           </button>
         </div>
       </header>
-      <main className="flex-grow p-6 text-slate-700">
+      <main className="flex-grow p-6 text-teal-950">
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">About SAGE</h2>
           <p className="text-lg">
@@ -61,7 +61,7 @@ function Landing() {
           </p>
         </section>
       </main>
-      <footer className="bg-gray-800 text-white p-4 text-center">
+      <footer className="bg-teal-700 text-white p-4 text-center">
         <p>&copy; 2024 SAGE. All rights reserved.</p>
       </footer>
     </div>
