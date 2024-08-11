@@ -1,13 +1,30 @@
+// import React from 'react';
+// import ReactDOM from 'react-dom/client'
+// import '../index.css';
+
+// function Profile() {
+//     return (
+//         <div>
+//             {/* Your content goes here */}
+//         </div>
+//     );
+// }
+
+// export default Profile;
+
 import React from 'react';
-import ReactDOM from 'react-dom/client'
+import { useAuth } from '../contexts/AuthContext';
 import '../index.css';
 
-function Profile() {
+const Profile = () => {
+    const { user, logout } = useAuth();
+
     return (
         <div>
-            {/* Your content goes here */}
+            <h1>Welcome, {user?.username}</h1>
+            <button onClick={logout}>Logout</button>
         </div>
     );
-}
+};
 
 export default Profile;
