@@ -67,11 +67,24 @@ nav {
     font-weight: bold;
 }
 
-/* Add border-radius to the first and last th elements */
-.calendar-view th:first-child {
+/* Rounded corners */
+.calendar-view th.rounded-tl-lg {
     border-top-left-radius: 10px;
 }
 
-.calendar-view th:last-child {
+.calendar-view th.rounded-tr-lg {
     border-top-right-radius: 10px;
+}
+
+.calendar-view th.rounded-bl-lg {
+    border-bottom-left-radius: 10px;
+}
+
+.calendar-view th.rounded-br-lg {
+    border-bottom-right-radius: 10px;
+}
+
+
+.affirmation-view {
+    margin-top: 20px;
 }

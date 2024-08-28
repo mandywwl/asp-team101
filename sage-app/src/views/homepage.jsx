@@ -6,6 +6,7 @@ import '../index.css';
 
 function Homepage() {
     const [dateTime, setDateTime] = useState(new Date());
+    //const [affirmation, setAffirmation] = useState('');
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -55,14 +56,18 @@ function Homepage() {
                     <thead>
                         <tr>
                             {getWeekDays().map((day, index) => (
-                                <th key={index} className="py-2 px-4 ">{day.day}</th>
+                                <th key={index} className={`py-2 px-4 border-b border-gray-200 ${index === 0 ? 'rounded-tl-lg rounded-bl-lg' : ''} ${index === 6 ? 'rounded-tr-lg rounded-br-lg' : ''}`}>{day.day}</th>
                             ))}
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             {getWeekDays().map((day, index) => (
-                                <td key={index} className={`py-2 px-4 ${isToday(day.fullDate) ? 'bg-teal-300' : ''}`}>{day.date}</td>
+                                <td key={index} className={`py-2 px-4 ${isToday(day.fullDate) ? 'bg-teal-200 rounded-full w-10 h-10 flex items-center justify-center mx-auto my-3' : ''}`}>
+                                    <div className="">
+                                        {day.date}
+                                    </div>
+                                </td>
                             ))}
                         </tr>
                     </tbody>
