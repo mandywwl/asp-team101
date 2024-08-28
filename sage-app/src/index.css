@@ -47,3 +47,31 @@ main {
 nav {
     background-color: #7cc0cf;
 }
+
+.calendar-view {
+    margin-top: 20px;
+}
+
+.calendar-view table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-view th, .calendar-view td {
+    padding: 8px;
+    text-align: center;
+}
+
+.calendar-view th {
+    background-color: #7cc0cf;
+    font-weight: bold;
+}
+
+/* Add border-radius to the first and last th elements */
+.calendar-view th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.calendar-view th:last-child {
+    border-top-right-radius: 10px;
+}
