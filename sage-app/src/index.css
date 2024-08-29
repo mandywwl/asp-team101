@@ -17,12 +17,13 @@
 
 
 
-        /* Custom CSS */
+/* Custom CSS */
 
-        /* General */
-
-main {
-    background-color: #defcf9;
+/* General */
+html, body {
+    height: 100%; /* Ensure the html and body fill the full height of the viewport */
+    margin: 0;
+    padding: 0;
 }
 
 /* Hide scrollbar for WebKit browsers */
@@ -36,11 +37,18 @@ body {
     scrollbar-width: none;     /* Firefox */
 }
 
-nav {
-    background-color: #7cc0cf;
+/* Navbar */
+.nav-container {
+    background-color: #46cebc;
+    color: #defcf9;
+    z-index: 1000; /* Ensure the nav menu is on top */
 }
 
-        /* Landing */
+/* Landing */
+
+main {
+    background-color: #defcf9;
+}
 
 #WelcomeBanner {
     background-color: #b7dbd6;
@@ -65,10 +73,12 @@ nav {
 
 
 
-        /* Dashboard */
+/* Dashboard */
 
 .mainViewBody {
     background: linear-gradient(to bottom, white, #7cc0cf);
+    /**/
+    min-height: 100vh; /* Ensure the mainViewBody takes at least the full height of the viewport */
 }
 
 .calendar-view {
@@ -90,7 +100,6 @@ nav {
     font-weight: bold;
 }
 
-/* Rounded corners */
 .calendar-view th.rounded-tl-lg {
     border-top-left-radius: 10px;
 }
@@ -115,4 +124,15 @@ nav {
 .journal-view button:hover {
     background-color: #2b7b70;
 
+}
+
+
+/* Profile */
+.profile-container {
+    flex: 1; /* Ensure the profile container grows to fill the available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px; /* Add padding to ensure space at the bottom */
 }
