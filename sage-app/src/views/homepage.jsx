@@ -1,5 +1,4 @@
 import React, { useState, useEffect }from 'react';
-import ReactDOM from 'react-dom/client';
 import NavMenu from '../components/NavMenu.jsx';
 import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";    // Slick Carousel CSS
@@ -12,14 +11,23 @@ function Homepage() {
     const [dateTime, setDateTime] = useState(new Date());
     //const [affirmation, setAffirmation] = useState('');
     const [journalEntry, setJournalEntry] = useState('');
+    const [selectedDate, setSelectedDate] = useState(new Date().toDateString());
+    const [showLog, setShowLog] = useState(false);
+
 
     useEffect(() => {
         const timer = setInterval(() => {
             setDateTime(new Date());
         }, 1000);
 
+         // Load the journal entry for today on initial load
+         const savedEntry = localStorage.getItem(selectedDate);
+         if (savedEntry) {
+             setJournalEntry(savedEntry);
+         }
+
         return () => clearInterval(timer);
-    }, []);
+    }, [selectedDate]);
 
     // useEffect(() => {
     //     fetch('/api/affirmation')
@@ -53,11 +61,32 @@ function Homepage() {
     };
 
     const handleJournalSave = () => {
-        // Save to local storage
-        localStorage.setItem('journalEntry', journalEntry); //@suizzzzz Change to save to the server
-        //alert('Journal saved successfully!');
+        // Save to local storage using selected date as the key
+        localStorage.setItem(selectedDate, journalEntry); //@suizzzzz Change to save to the server
+        alert('Journal saved successfully!');
+    };
+    const handleDateClick = (date) => {
+        setSelectedDate(date);
+        const savedEntry = localStorage.getItem(date);
+        setJournalEntry(savedEntry || '');
+    };
+    // journal log
+    const toggleLog = () => {
+        setShowLog(!showLog);
     };
 
+    const getAllJournalEntries = () => {
+        const entries = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key) {
+                entries.push({ date: key, entry: localStorage.getItem(key) });
+            }
+        }
+        return entries;
+    };
+
+    //////////////////////////////////////////
     //@suizzzzz This should be replaced with actual data from the server
     const dummyInsights = [
         { id: 1, title: "Article 1", imageUrl: "path/to/article1.jpg", link: "/article/1" },
@@ -101,13 +130,22 @@ function Homepage() {
 
 
     return (
-        <div className='mainViewBody'>
+        <div className='mainViewBody relative'>
             <NavMenu className='md:max-xl:order-first sm:order-last' />
             <div className="text-left p-4">
                 <h2 className="text-xl">
                 {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit' })}
                 </h2>
             </div>
+            {/* Tab in the top right corner. Replace with icon */}
+            <Link 
+                to="/journal-log"
+                className="bg-teal-500 text-white py-2 px-4 rounded float-right m-4"
+            >
+                Journal Log
+            </Link>
+            
+
             <div className="calendar-view p-4 max-w-md mx-auto">
                 <table className="min-w-full bg-white">
                     <thead>
@@ -118,9 +156,15 @@ function Homepage() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr className=''>
                             {getWeekDays().map((day, index) => (
-                                <td key={index} className={`py-2 px-4 ${isToday(day.fullDate) ? 'bg-teal-200 rounded-full w-10 h-10 flex items-center justify-center mx-auto my-3' : ''}`}>
+                                <td key={index} 
+                                    className={`py-2 px-4 cursor-pointer 
+                                                ${isToday(day.fullDate) ? 'bg-teal-200 rounded-full' : ''}
+                                                hover:bg-blue-200 hover:rounded-full 
+                                                w-10 h-10 items-center justify-center`}
+                                    onClick={() => handleDateClick(day.fullDate)}
+                                >
                                     <div className="">
                                         {day.date}
                                     </div>

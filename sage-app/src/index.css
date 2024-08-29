@@ -17,7 +17,30 @@
 
 
 
-/* Custom CSS */
+        /* Custom CSS */
+
+        /* General */
+
+main {
+    background-color: #defcf9;
+}
+
+/* Hide scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for other browsers */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+nav {
+    background-color: #7cc0cf;
+}
+
+        /* Landing */
 
 #WelcomeBanner {
     background-color: #b7dbd6;
@@ -36,16 +59,16 @@
     background-color: #218057;
 }
 
-main {
-    background-color: #defcf9;
-}
-
 #LoginBackground {
     background-color: #defcf9;
 }
 
-nav {
-    background-color: #7cc0cf;
+
+
+        /* Dashboard */
+
+.mainViewBody {
+    background: linear-gradient(to bottom, white, #7cc0cf);
 }
 
 .calendar-view {
@@ -92,12 +115,4 @@ nav {
 .journal-view button:hover {
     background-color: #2b7b70;
 
-}
-
-.carousel-container {
-
-}
-
-.mainViewBody {
-    background: linear-gradient(to bottom, white, #7cc0cf);
 }

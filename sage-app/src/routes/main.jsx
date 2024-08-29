@@ -9,6 +9,7 @@ import Homepage from '../views/Homepage.jsx';
 import Login from '../views/Login.jsx';
 import Register from '../views/Register.jsx';
 import Profile from '../views/Profile.jsx';
+import JournalLog from '../views/JournalLog.jsx';
 
 import '../index.css';
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/journal-log" element={<JournalLog />} />
       </Routes>
     </Router>
   </React.StrictMode>
