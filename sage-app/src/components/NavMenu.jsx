@@ -1,15 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaHome, FaLightbulb, FaComment, FaRegHeart, FaUser } from 'react-icons/fa';
+
 
 function NavMenu() {
   return (
-    <nav className="p-4 text-white">
-      <ul className="flex justify-center space-x-4">
-        <li className='mx-4'><Link to="/homepage">Home</Link></li>
-        <li className='mx-4'><Link to="/insights">Insights</Link></li>
-        <li className='mx-4'><Link to="/chat">Chatbot</Link></li>
-        <li className='mx-4'><Link to="/track">Tracker</Link></li>
-        <li className='mx-4'><Link to="/profile">Profile</Link></li>
+    <nav className="nav-container p-4 md:relative fixed bottom-0 left-0 w-full md:w-auto">
+      <ul className="flex justify-between md:justify-center space-x-4">
+        <li className='flex-1 text-center'>
+          <Link to="/homepage">
+            <FaHome className="md:hidden mx-auto" size={24} color="#defcf9" />
+            <span className="hidden md:inline">Home</span>
+          </Link>
+        </li>
+        <li className='flex-1 text-center'>
+          <Link to="/insights">
+            <FaLightbulb className="md:hidden mx-auto" size={24} color="#defcf9" />
+            <span className="hidden md:inline">Insights</span>
+          </Link>
+        </li>
+        <li className='flex-1 text-center'>
+          <Link to="/chat">
+            <FaComment className="md:hidden mx-auto" size={24} color="#defcf9" />
+            <span className="hidden md:inline">Chatbot</span>
+          </Link>
+        </li>
+        <li className='flex-1 text-center'>
+          <Link to="/track">
+            <FaRegHeart className="md:hidden mx-auto" size={24} color="#defcf9" />
+            <span className="hidden md:inline">Tracker</span>
+          </Link>
+        </li>
+        <li className='flex-1 text-center'>
+          <Link to="/profile">
+            <FaUser className="md:hidden mx-auto" size={24} color="#defcf9" />
+            <span className="hidden md:inline">Profile</span>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
