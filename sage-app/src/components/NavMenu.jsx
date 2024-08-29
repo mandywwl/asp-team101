@@ -26,7 +26,7 @@ function NavMenu() {
           </Link>
         </li>
         <li className='flex-1 text-center'>
-          <Link to="/track">
+          <Link to="/tracker">
             <FaRegHeart className="md:hidden mx-auto" size={24} color="#defcf9" />
             <span className="hidden md:inline">Tracker</span>
           </Link>

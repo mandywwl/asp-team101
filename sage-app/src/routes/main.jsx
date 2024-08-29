@@ -10,7 +10,8 @@ import Login from '../views/Login.jsx';
 import Register from '../views/Register.jsx';
 import Profile from '../views/Profile.jsx';
 import JournalLog from '../views/JournalLog.jsx';
-import Chatbot from '../views/Chatbot.jsx';
+import Chatbot from '../views/chatbot.jsx';
+import Tracker from '../views/tracker.jsx';
 
 import '../index.css';
 
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/profile" element={<Profile />} />
         <Route path="/journal-log" element={<JournalLog />} />
         <Route path="/chatbot" element={<Chatbot />} />
+        <Route path="/tracker" element={<Tracker />} />
       </Routes>
     </Router>
   </React.StrictMode>
