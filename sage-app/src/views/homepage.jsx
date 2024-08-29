@@ -74,13 +74,14 @@ function Homepage() {
 
     //////////////////////////////////////////
     //@suizzzzz This should be replaced with actual data from the server
+    // ratio of thumbnails is 600:270 for bigger screens
     const dummyInsights = [
-        { id: 1, title: "Article 1", imageUrl: "path/to/article1.jpg", link: "/article/1" },
-        { id: 2, title: "Meditation 1", imageUrl: "path/to/meditation1.jpg", link: "/meditation/1" },
-        { id: 3, title: "Article 2", imageUrl: "path/to/article2.jpg", link: "/article/2" },
-        { id: 4, title: "Meditation 2", imageUrl: "path/to/meditation2.jpg", link: "/meditation/2" },
-        { id: 5, title: "Article 3", imageUrl: "path/to/article3.jpg", link: "/article/3" },
-        { id: 6, title: "Meditation 3", imageUrl: "path/to/meditation3.jpg", link: "/meditation/3" },
+        { id: 1, title: "Article 1", imageUrl: "/600x600_placeholder.png", link: "/article/1" },
+        { id: 2, title: "Meditation 1", imageUrl: "/600x600_placeholder.png", link: "/meditation/1" },
+        { id: 3, title: "Article 2", imageUrl: "/600x600_placeholder.png", link: "/article/2" },
+        { id: 4, title: "Meditation 2", imageUrl: "/600x600_placeholder.png", link: "/meditation/2" },
+        { id: 5, title: "Article 3", imageUrl: "/600x600_placeholder.png", link: "/article/3" },
+        { id: 6, title: "Meditation 3", imageUrl: "/600x600_placeholder.png", link: "/meditation/3" },
     ];
 
     // Insights & Articles Carousel Settings
@@ -116,8 +117,8 @@ function Homepage() {
 
 
     return (
-        <div className='mainViewBody relative'>
-            <NavMenu className='md:max-xl:order-first sm:order-last' />
+        <div className='mainViewBody relative pb-20'>
+            <NavMenu />
             <div className="text-left p-4">
                 <h2 className="text-xl">
                 {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit' })}
@@ -194,7 +195,6 @@ function Homepage() {
                     </Slider>
                 </div>
             </div>
-
         </div>
         
     );

@@ -5,7 +5,7 @@ import { FaHome, FaLightbulb, FaComment, FaRegHeart, FaUser } from 'react-icons/
 
 function NavMenu() {
   return (
-    <nav className="nav-container p-4 md:relative fixed bottom-0 left-0 w-full md:w-auto">
+    <nav className="nav-container p-4 md:relative md:top-0 md:left-0 md:w-auto fixed bottom-0 left-0 w-full">
       <ul className="flex justify-between md:justify-center space-x-4">
         <li className='flex-1 text-center'>
           <Link to="/homepage">

@@ -41,6 +41,7 @@ body {
 .nav-container {
     background-color: #46cebc;
     color: #defcf9;
+    z-index: 1000; /* Ensure the nav menu is on top */
 }
 
 /* Landing */
