@@ -12,6 +12,7 @@ import Profile from '../views/Profile.jsx';
 import JournalLog from '../views/JournalLog.jsx';
 import Chatbot from '../views/chatbot.jsx';
 import Tracker from '../views/tracker.jsx';
+import Insights from '../views/insights.jsx';
 
 import '../index.css';
 
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/journal-log" element={<JournalLog />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/tracker" element={<Tracker />} />
+        <Route path="/insights" element={<Insights />} />
       </Routes>
     </Router>
   </React.StrictMode>
