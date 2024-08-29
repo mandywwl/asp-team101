@@ -10,7 +10,7 @@ import Login from '../views/Login.jsx';
 import Register from '../views/Register.jsx';
 import Profile from '../views/Profile.jsx';
 import JournalLog from '../views/JournalLog.jsx';
-import Chatbot from '../views/chatbot.jsx';
+import Chatbot from '../views/Chatbot.jsx';
 
 import '../index.css';
 
