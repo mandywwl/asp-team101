@@ -20,7 +20,7 @@ function NavMenu() {
           </Link>
         </li>
         <li className='flex-1 text-center'>
-          <Link to="/chat">
+          <Link to="/chatbot">
             <FaComment className="md:hidden mx-auto" size={24} color="#defcf9" />
             <span className="hidden md:inline">Chatbot</span>
           </Link>
