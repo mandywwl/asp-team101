@@ -123,7 +123,15 @@ function Insights() {
                     <ul className="list-disc pl-5">
                         {resources.map(resource => (
                             <li key={resource.id} className="mb-2 flex items-center">
-                                <svg className="w-5 h-5 mr-2 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4.5l3 3M21 12.5a9 9 0 11-9-9 9 9 0 019 9z"></path></svg>
+                                <svg className="w-5 h-5 mr-2 text-teal-500" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                viewBox="0 0 24 24" 
+                                xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" 
+                                    strokeLinejoin="round" 
+                                    strokeWidth="2" 
+                                    d="M12 8v4.5l3 3M21 12.5a9 9 0 11-9-9 9 9 0 019 9z"></path></svg>
                                 <a href={resource.link} className="text-teal-500 hover:underline">{resource.title}</a>
                             </li>
                         ))}
