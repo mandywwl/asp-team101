@@ -88,3 +88,16 @@ nav {
 .affirmation-view {
     margin-top: 20px;
 }
+
+.journal-view button:hover {
+    background-color: #2b7b70;
+
+}
+
+.carousel-container {
+
+}
+
+.mainViewBody {
+    background: linear-gradient(to bottom, white, #7cc0cf);
+}
