@@ -10,7 +10,8 @@ function NavMenu() {
       <li className='flex-1 text-center'>
           <Link to="/">
             <FaRocket className="md:hidden mx-auto" size={24} color="#defcf9" />
-            <span className="hidden md:inline">Landing</span>
+            {/* <span className="hidden md:inline">Main</span> */}
+            <img src="/sage-logo.png" alt="SAGE logo" className="w-20 h-20 hidden md:block" />
           </Link>
         </li>
         <li className='flex-1 text-center'>
