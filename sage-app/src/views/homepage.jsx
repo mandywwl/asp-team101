@@ -1,40 +1,36 @@
-import React, { useState, useEffect }from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";    // Slick Carousel CSS
 import "slick-carousel/slick/slick-theme.css"; // Slick Carousel Theme CSS
 import Slider from "react-slick";  // Slick Carousel Component
-
 import NavMenu from '../components/NavMenu.jsx';
 import '../index.css';
 
 function Homepage() {
     const [dateTime, setDateTime] = useState(new Date());
-    //const [affirmation, setAffirmation] = useState('');
     const [journalEntry, setJournalEntry] = useState('');
     const [selectedDate, setSelectedDate] = useState(new Date().toDateString());
-    const [showLog, setShowLog] = useState(false);
-
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
+        // Retrieve user information from localStorage
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+
         const timer = setInterval(() => {
             setDateTime(new Date());
         }, 1000);
 
-         // Load the journal entry for today on initial load
-         const savedEntry = localStorage.getItem(selectedDate);
-         if (savedEntry) {
-             setJournalEntry(savedEntry);
-         }
+        // Load the journal entry for today on initial load
+        const savedEntry = localStorage.getItem(selectedDate);
+        if (savedEntry) {
+            setJournalEntry(savedEntry);
+        }
 
         return () => clearInterval(timer);
     }, [selectedDate]);
-
-    // useEffect(() => {
-    //     fetch('/api/affirmation')
-    //         .then(response => response.json())
-    //         .then(data => setAffirmation(data.affirmation))
-    //         .catch(error => console.error('Error fetching affirmation:', error));
-    // }, []);
 
     const getWeekDays = () => {
         const weekDays = [];
@@ -62,19 +58,16 @@ function Homepage() {
 
     const handleJournalSave = () => {
         // Save to local storage using selected date as the key
-        localStorage.setItem(selectedDate, journalEntry); //@suizzzzz Change to save to the server
+        localStorage.setItem(selectedDate, journalEntry); 
         alert('Journal saved successfully!');
     };
+
     const handleDateClick = (date) => {
         setSelectedDate(date);
         const savedEntry = localStorage.getItem(date);
         setJournalEntry(savedEntry || '');
     };
 
-
-    //////////////////////////////////////////
-    //@suizzzzz This should be replaced with actual data from the server
-    // ratio of thumbnails is 600:270 for bigger screens
     const dummyInsights = [
         { id: 1, title: "Article 1", imageUrl: "/600x600_placeholder.png", link: "/article/1" },
         { id: 2, title: "Meditation 1", imageUrl: "/600x600_placeholder.png", link: "/meditation/1" },
@@ -84,54 +77,50 @@ function Homepage() {
         { id: 6, title: "Meditation 3", imageUrl: "/600x600_placeholder.png", link: "/meditation/3" },
     ];
 
-    // Insights & Articles Carousel Settings
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        arrows: true,  // Arrows enabled by default
+        arrows: true,  
         responsive: [
             {
-                breakpoint: 1024, // Below 1024px screen width
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true,
-                    arrows: false  // Disable arrows on smaller screens
+                    arrows: false  
                 }
             },
             {
-                breakpoint: 600, // Below 600px screen width
+                breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    dots: false,  // Disable dots on smaller screens
+                    dots: false,
                     arrows: false
                 }
             }
         ]
-
     };
-
 
     return (
         <div className='mainViewBody relative pb-20'>
             <NavMenu />
             <div className="text-left p-4">
                 <h2 className="text-xl">
-                {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit' })}
+                    {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit' })}
                 </h2>
+                {user && <p className="text-lg">Welcome back, {user.name}!</p>}
             </div>
-            {/* Tab in the top right corner. Replace with icon */}
             <Link 
                 to="/journal-log"
                 className="bg-teal-500 text-white py-2 px-4 rounded float-right m-4"
             >
                 Journal Log
             </Link>
-            
 
             <div className="calendar-view p-4 max-w-md mx-auto">
                 <table className="min-w-full bg-white">
@@ -163,7 +152,6 @@ function Homepage() {
             </div>
             <div className="affirmation-view p-4">
                 <p className="text-3xl text-center italic">
-                    {/* {affirmation} */}
                     debug: affirmation
                 </p>
             </div>
@@ -186,17 +174,16 @@ function Homepage() {
                 <p className="text-xl">Daily Recommended Insights & Articles</p>
                 <div className='carousel-container max-w-full mx-auto px-4' >
                     <Slider {...settings} className='my-3'>
-                    {dummyInsights.map(insight => (
-                        <div key={insight.id} className="p-4 flex flex-col items-center">
-                            <img src={insight.imageUrl} alt={insight.title} className="w-full h-48 object-cover mx-auto" />
-                            <h3 className="text-lg text-center font-semibold mt-2">{insight.title}</h3>
-                        </div>
-                    ))}
+                        {dummyInsights.map(insight => (
+                            <div key={insight.id} className="p-4 flex flex-col items-center">
+                                <img src={insight.imageUrl} alt={insight.title} className="w-full h-48 object-cover mx-auto" />
+                                <h3 className="text-lg text-center font-semibold mt-2">{insight.title}</h3>
+                            </div>
+                        ))}
                     </Slider>
                 </div>
             </div>
         </div>
-        
     );
 }
 

@@ -1,24 +1,43 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client'
-
-import '../index.css';
+import axios from 'axios';
+import React, { useState } from 'react';
 
 function Register() {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:5000/api/users/register', {
+                username,
+                password,
+            });
+            console.log(response.data);
+            alert('User registered successfully!');
+        } catch (error) {
+            console.error('Registration Error:', error.response ? error.response.data : error.message);
+            alert('There was an error registering the user.');
+        }
+    };
+
     return (
-        <div id="LoginBackground" className="min-h-screen flex items-center justify-center">
+        <div id="RegisterBackground" className="min-h-screen flex items-center justify-center">
             <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-                <h2 className="text-2xl font-bold mb-6 text-center">Register with SAGE</h2>
-                <form>
+                <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+                <form onSubmit={handleRegister}>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                            Name
+                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+                            Username
                         </label>
                         <input
                             type="text"
-                            id="name"
-                            name="name"
+                            id="username"
+                            name="username"
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            placeholder="Enter your name"
+                            placeholder="Enter your username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
                     <div className="mb-4">
@@ -31,6 +50,8 @@ function Register() {
                             name="email"
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className="mb-6">
@@ -43,22 +64,18 @@ function Register() {
                             name="password"
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                             placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <div className="flex items-center justify-between">
                         <button
                             type="submit"
-                            id="RegisterButton"
+                            id='RegisterButton'
                             className="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         >
                             Register
                         </button>
-                        <a
-                            href="/login"
-                            className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                        >
-                            Already have an account? Login
-                        </a>
                     </div>
                 </form>
             </div>

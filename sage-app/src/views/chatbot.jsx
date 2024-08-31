@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client'
+import axios from 'axios';
 import NavMenu from '../components/NavMenu.jsx';
 import '../index.css';
 import logo from '/sage-logo.png';
@@ -17,20 +17,29 @@ function Chatbot() {
         setMessages(newMessages);
         setInput('');
 
-        // Replace this mock response with a call to the OpenAI API
-        const response = "I'm here to help with any questions or concerns you have.";
-        setMessages([...newMessages, { sender: "bot", text: response }]);
+        try {
+            // Send the user's message to the backend API
+            const response = await axios.post('http://localhost:5000/api/users/chat', { message: input });
+            const botResponse = response.data.botMessage;
+
+            // Update the chatbox with the bot's response
+            setMessages([...newMessages, { sender: "bot", text: botResponse }]);
+        } catch (error) {
+            console.error('Chatbot Error:', error.response ? error.response.data : error.message);
+            // Optionally, you can add an error message to the chat
+            setMessages([...newMessages, { sender: "bot", text: "Sorry, there was an error processing your request." }]);
+        }
     };
 
     return (
         <div className='mainViewBody relative'>
             <NavMenu className='md:max-xl:order-first sm:order-last' />
-            <div className="chat-container p-4 max-w-3xl mx-auto"> {/* Increased the max width to 3xl (1.5 times wider) */}
-                <div className="chat-header flex justify-center items-center mb-4"> {/* Flex container for logo and title */}
+            <div className="chat-container p-4 max-w-3xl mx-auto">
+                <div className="chat-header flex justify-center items-center mb-4">
                     <img src={logo} alt="Chatbot Logo" className="w-16 h-16" />
-                    <h1 className="ml-4 text-2xl font-semibold text-teal-700">Mental Health Companion</h1> {/* Title next to logo */}
+                    <h1 className="ml-4 text-2xl font-semibold text-teal-700">Mental Health Companion</h1>
                 </div>
-                <div className="chatbox bg-white p-6 rounded-lg shadow-md h-[32rem] overflow-y-scroll"> {/* Shorter height, rounded-lg corners */}
+                <div className="chatbox bg-white p-6 rounded-lg shadow-md h-[32rem] overflow-y-scroll">
                     {messages.map((msg, index) => (
                         <div key={index} className={`message ${msg.sender === 'bot' ? 'text-left' : 'text-right'}`}>
                             <p className={`p-3 my-2 rounded ${msg.sender === 'bot' ? 'bg-gray-200' : 'bg-teal-500 text-white'}`}>
