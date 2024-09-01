@@ -46,7 +46,7 @@ Welcome to SAGE, a mental health companion app designed to support and enhance y
 1. Install and set up MySQL on your machine: https://dev.mysql.com/doc/mysql-getting-started/en/
 2. After connecting to the mysql prompt, create a database: 
    ```bash
-   CREATE DATABASE team101
+   CREATE DATABASE team101;
    ``` 
 3. Then create a user on localhost as per the .env file: 
    ```bash
@@ -56,7 +56,7 @@ Welcome to SAGE, a mental health companion app designed to support and enhance y
    ```bash
    GRANT ALL PRIVILEGES ON team101.* TO 'suizz'@'localhost' WITH GRANT OPTION;
    ```
-5. Run ```FLUSH PRIVILEGES``` and then you can quit from the mysql prompt using ```exit```.
+5. Run ```FLUSH PRIVILEGES;``` and then you can quit from the mysql prompt using ```exit```.
 6. Make sure that server/.env file exists and that it has team101 set for DB_NAME, password set for DB_PASS and suizz set for DB_USER
 
 ## Contributing
