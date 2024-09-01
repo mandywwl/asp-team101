@@ -76,6 +76,7 @@ function Register() {
                         >
                             Register
                         </button>
+                        <a href="/login" className="text-blue-500 hover:underline">Back to Login</a>
                     </div>
                 </form>
             </div>
