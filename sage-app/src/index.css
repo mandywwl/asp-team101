@@ -63,13 +63,8 @@ main {
 #RegisterButton {
     background-color: #2db479;
 }
-#RegisterButton:hover {
-    background-color: #218057;
-}
 
-#LoginBackground {
-    background-color: #defcf9;
-}
+
 
 
 

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
+import '../index.css';
+
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -28,7 +30,7 @@ function Login() {
     
 
     return (
-        <div id="LoginBackground" className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center bg-green-300">
             <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
                 <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
                 <form onSubmit={handleLogin}>
@@ -67,6 +69,13 @@ function Login() {
                             className="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         >
                             Sign In
+                        </button>
+                        <button
+                            type="button"
+                            id='RegisterButton'
+                            className="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            onClick={() => window.location.href = '/register'}
+                        > Register
                         </button>
                     </div>
                 </form>

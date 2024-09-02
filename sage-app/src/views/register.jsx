@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
+import '../index.css';
+
 function Register() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -22,7 +24,7 @@ function Register() {
     };
 
     return (
-        <div id="RegisterBackground" className="min-h-screen flex items-center justify-center">
+        <div className=" min-h-screen flex items-center justify-center bg-green-300">
             <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
                 <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
                 <form onSubmit={handleRegister}>
