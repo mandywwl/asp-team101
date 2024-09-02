@@ -113,7 +113,7 @@ function Homepage() {
                 <h2 className="text-xl">
                     {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit' })}
                 </h2>
-                {user && <p className="text-lg">Welcome back, {user.name}!</p>}
+                {user && <p className="text-lg">Welcome back, {user}!</p>}
             </div>
             <Link 
                 to="/journal-log"

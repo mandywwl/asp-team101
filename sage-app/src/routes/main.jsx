@@ -13,6 +13,8 @@ import JournalLog from '../views/JournalLog.jsx';
 import Chatbot from '../views/chatbot.jsx';
 import Tracker from '../views/tracker.jsx';
 import Insights from '../views/insights.jsx';
+import ProtectedRoute from '../components/ProtectedRoute.jsx'; // Import the ProtectedRoute component
+
 
 import '../index.css';
 
@@ -21,14 +23,57 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/homepage" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/journal-log" element={<JournalLog />} />
-        <Route path="/chatbot" element={<Chatbot />} />
-        <Route path="/tracker" element={<Tracker />} />
-        <Route path="/insights" element={<Insights />} />
+        {/* Protect these routes via ProtectedRoute */}
+        <Route 
+          path="/homepage" 
+          element={
+            <ProtectedRoute>
+              <Homepage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/journal-log" 
+          element={
+            <ProtectedRoute>
+              <JournalLog />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/chatbot" 
+          element={
+            <ProtectedRoute>
+              <Chatbot />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/tracker" 
+          element={
+            <ProtectedRoute>
+              <Tracker />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/insights" 
+          element={
+            <ProtectedRoute>
+              <Insights />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
     </Router>
   </React.StrictMode>
