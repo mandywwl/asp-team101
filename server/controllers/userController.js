@@ -1,29 +1,47 @@
-const User = require('../models/User');
+const db = require('../config/db.config');
 
+// Register a new user
 exports.register = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const newUser = await User.create({ username, password });
-    res.status(201).json(newUser);
+
+    // Insert the new user into the SQLite database
+    db.run('INSERT INTO users (username, password) VALUES (?, ?)', [username, password], function (err) {
+      if (err) {
+        return res.status(500).json({ error: 'Error registering user' });
+      }
+
+      // Return the new user's ID
+      res.status(201).json({ id: this.lastID });
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
+// Login an existing user
 exports.login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await User.findOne({ where: { username, password } });
-    if (user) {
-      res.status(200).json(user);
-    } else {
-      res.status(401).json({ message: 'Invalid credentials' });
-    }
+
+    // Find the user in the SQLite database
+    db.get('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, user) => {
+      if (err) {
+        return res.status(500).json({ error: 'Error during login' });
+      }
+
+      if (user) {
+        res.status(200).json(user);
+      } else {
+        res.status(401).json({ message: 'Invalid credentials' });
+      }
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
+// Chat with OpenAI
 const OpenAI = require('openai');
 
 const openai = new OpenAI({
@@ -47,6 +65,3 @@ exports.chat = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-
-

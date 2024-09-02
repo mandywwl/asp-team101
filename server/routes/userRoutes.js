@@ -8,7 +8,7 @@ router.post('/register', userController.register);
 // Route for user login
 router.post('/login', userController.login);
 
-// Route for chat interaction
+// Route for AI chatbot interaction
 router.post('/chat', userController.chat);
 
 module.exports = router;
