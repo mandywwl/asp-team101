@@ -16,7 +16,13 @@ function Homepage() {
         // Retrieve user information from localStorage
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
+            // setUser(JSON.parse(storedUser));
+            try {
+                const parsedUser = JSON.parse(storedUser);
+                setUser(parsedUser); // Parse user object and store it in state
+            } catch (error) {
+                console.error("Error parsing user data:", error);
+            }
         }
 
         const timer = setInterval(() => {
@@ -113,7 +119,7 @@ function Homepage() {
                 <h2 className="text-xl">
                     {dateTime.toLocaleDateString()} {dateTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit' })}
                 </h2>
-                {user && <p className="text-lg">Welcome back, {user}!</p>}
+                {user && <p className="text-lg">Welcome back, {user.username}!</p>}
             </div>
             <Link 
                 to="/journal-log"

@@ -13,7 +13,7 @@ import JournalLog from '../views/JournalLog.jsx';
 import Chatbot from '../views/chatbot.jsx';
 import Tracker from '../views/tracker.jsx';
 import Insights from '../views/insights.jsx';
-import ProtectedRoute from '../components/ProtectedRoute.jsx'; // Import the ProtectedRoute component
+import ProtectedRoute from '../components/ProtectedRoute.jsx';
 
 
 import '../index.css';
