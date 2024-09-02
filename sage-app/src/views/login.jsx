@@ -18,7 +18,7 @@ function Login() {
             // Assuming the backend returns a user object with a name and a token
             const user = response.data;
             localStorage.setItem('user', JSON.stringify(user));  // Store user information in localStorage
-            alert('Login successful!');
+            
             
             // Redirect to the homepage
             window.location.href = '/homepage';
