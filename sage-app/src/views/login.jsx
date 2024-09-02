@@ -70,13 +70,7 @@ function Login() {
                         >
                             Sign In
                         </button>
-                        <button
-                            type="button"
-                            id='RegisterButton'
-                            className="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            onClick={() => window.location.href = '/register'}
-                        > Register
-                        </button>
+                        <a href="/register" className="text-blue-500 text-sm">Don't have an account? Register here</a>
                     </div>
                 </form>
             </div>
