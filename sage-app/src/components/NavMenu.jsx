@@ -14,11 +14,9 @@ function NavMenu() {
   return (
     <nav className="nav-container p-4 md:relative md:top-0 md:left-0 md:w-auto fixed bottom-0 left-0 w-full">
       <ul className="flex justify-between md:justify-center space-x-4">
-      <li className='flex-1 text-center'>
+      <li className='flex-1 text-center hidden md:block'>
           <Link to="/">
-            {/* <FaRocket className="md:hidden mx-auto" size={24} color="#defcf9" /> */}
-            {/* <span className="hidden md:inline">Main</span> */}
-            <img src="/sage-logo.png" alt="SAGE logo" className="w-20 h-20 hidden md:block" />
+            <img src="/sage-logo.png" alt="SAGE logo" className="w-20 h-20" />
           </Link>
         </li>
         <li className='flex-1 text-center'>

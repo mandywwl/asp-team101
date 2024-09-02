@@ -70,7 +70,7 @@ function Login() {
                         >
                             Sign In
                         </button>
-                        <a href="/register" className="text-blue-500 text-sm">Don't have an account? Register here</a>
+                        <a href="/register" className="text-blue-500 text-sm">Create account</a>
                     </div>
                 </form>
             </div>
