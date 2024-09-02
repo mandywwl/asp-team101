@@ -26,20 +26,18 @@ function Chatbot() {
             setMessages([...newMessages, { sender: "bot", text: botResponse }]);
         } catch (error) {
             console.error('Chatbot Error:', error.response ? error.response.data : error.message);
-            // Optionally, you can add an error message to the chat
             setMessages([...newMessages, { sender: "bot", text: "Sorry, there was an error processing your request." }]);
         }
     };
 
     return (
-        <div className='mainViewBody relative'>
+        <div className='mainViewBody flex flex-col h-screen'>
             <NavMenu className='md:max-xl:order-first sm:order-last' />
-            <div className="chat-container p-4 max-w-3xl mx-auto">
-                <div className="chat-header flex justify-center items-center mb-4">
-                    <img src={logo} alt="Chatbot Logo" className="w-16 h-16" />
-                    <h1 className="ml-4 text-2xl font-semibold text-teal-700">Mental Health Companion</h1>
+            <div className="p-4 max-w-3xl mx-auto flex-grow flex flex-col justify-between">
+                <div className="flex justify-center items-center">
+                    <img src={logo} alt="Chatbot Logo" className="w-16 h-16 md:w-16 md:h-16" />
                 </div>
-                <div className="chatbox bg-white p-6 rounded-lg shadow-md h-[32rem] overflow-y-scroll">
+                <div id="chatPreview" className="bg-white p-6 rounded-lg shadow-md h-80 overflow-y-auto">
                     {messages.map((msg, index) => (
                         <div key={index} className={`message ${msg.sender === 'bot' ? 'text-left' : 'text-right'}`}>
                             <p className={`p-3 my-2 rounded ${msg.sender === 'bot' ? 'bg-gray-200' : 'bg-teal-500 text-white'}`}>
@@ -48,14 +46,14 @@ function Chatbot() {
                         </div>
                     ))}
                 </div>
-                <div className="input-box mt-4 flex">
+                <div className="input-box flex mb-3 pb-11">
                     <input
                         type="text"
                         className="flex-grow p-3 border rounded-l-lg"
                         placeholder="Type your message..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
-                        onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                        onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                     />
                     <button
                         className="bg-teal-500 text-white p-3 rounded-r-lg"

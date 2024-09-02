@@ -85,7 +85,7 @@ function Insights() {
     ];
 
     return (
-        <div className="mainViewBody relative">
+        <div className="mainViewBody relative  pb-11">
             <NavMenu className='md:max-xl:order-first sm:order-last' />
             <div className="insights-container p-6 mx-auto max-w-2xl">
                 <h2 className="text-3xl font-bold text-center mb-6">Mental Health Insights</h2>

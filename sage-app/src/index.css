@@ -24,18 +24,34 @@ html, body {
     height: 100%; /* Ensure the html and body fill the full height of the viewport */
     margin: 0;
     padding: 0;
+    overflow-y: scroll;
 }
 
-/* Hide scrollbar for WebKit browsers */
-::-webkit-scrollbar {
-    display: none;
+/* Hide scrollbar for WebKit browsers globally */
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
 
-/* Hide scrollbar for other browsers */
+/* Hide scrollbar for other browsers globally */
 body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;     /* Firefox */
 }
+
+
+
+/* Chatbot */
+
+/* Enable scrollbar visibility only for chatPreview */
+#chatPreview {
+    overflow-y: auto;
+    scrollbar-width: thin; /* Reset scrollbar hiding for Firefox in chatPreview; Enable scrollbar visibility in Firefox */
+    -ms-overflow-style: scrollbar; /* Reset scrollbar hiding for IE and Edge in chatPreview; Enable scrollbar visibility in IE and Edge */
+
+}
+
 
 /* Navbar */
 .nav-container {
@@ -43,6 +59,9 @@ body {
     color: #defcf9;
     z-index: 1000; /* Ensure the nav menu is on top */
 }
+
+
+
 
 /* Landing */
 
@@ -64,17 +83,18 @@ main {
     background-color: #2db479;
 }
 
-
-
-
-
-/* Dashboard */
-
 .mainViewBody {
     background: linear-gradient(to bottom, white, #7cc0cf);
     /**/
     min-height: 100vh; /* Ensure the mainViewBody takes at least the full height of the viewport */
 }
+
+
+
+
+
+
+/* Dashboard */
 
 .calendar-view {
     margin-top: 20px;
@@ -122,6 +142,10 @@ main {
 }
 
 
+
+
+
+
 /* Profile */
 .profile-container {
     flex: 1; /* Ensure the profile container grows to fill the available space */
@@ -131,3 +155,10 @@ main {
     align-items: center;
     padding-bottom: 40px; /* Add padding to ensure space at the bottom */
 }
+
+
+
+
+
+
+
