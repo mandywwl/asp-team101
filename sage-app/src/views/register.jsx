@@ -17,6 +17,7 @@ function Register() {
             });
             console.log(response.data);
             alert('User registered successfully!');
+            window.location.href = '/login';
         } catch (error) {
             console.error('Registration Error:', error.response ? error.response.data : error.message);
             alert('There was an error registering the user.');
