@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const db = require('./config/db.config'); // Import the SQLite database connection
+const articleRoutes = require('./routes/articleRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,9 @@ app.use('/api/users', userRoutes);
 app.get('/', (req, res) => {
     res.send('Hello from the backend!');
 });
+
+// API route for article recommendations
+app.use('/api/articles', articleRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

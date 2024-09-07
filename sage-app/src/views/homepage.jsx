@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import "slick-carousel/slick/slick.css";    // Slick Carousel CSS
-import "slick-carousel/slick/slick-theme.css"; // Slick Carousel Theme CSS
-import Slider from "react-slick";  // Slick Carousel Component
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import NavMenu from '../components/NavMenu.jsx';
+import axios from 'axios';
 import '../index.css';
 
 function Homepage() {
@@ -11,15 +12,14 @@ function Homepage() {
     const [journalEntry, setJournalEntry] = useState('');
     const [selectedDate, setSelectedDate] = useState(new Date().toDateString());
     const [user, setUser] = useState(null);
+    const [recommendedArticles, setRecommendedArticles] = useState([]);
 
     useEffect(() => {
-        // Retrieve user information from localStorage
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
-            // setUser(JSON.parse(storedUser));
             try {
                 const parsedUser = JSON.parse(storedUser);
-                setUser(parsedUser); // Parse user object and store it in state
+                setUser(parsedUser);
             } catch (error) {
                 console.error("Error parsing user data:", error);
             }
@@ -29,14 +29,40 @@ function Homepage() {
             setDateTime(new Date());
         }, 1000);
 
-        // Load the journal entry for today on initial load
         const savedEntry = localStorage.getItem(selectedDate);
         if (savedEntry) {
             setJournalEntry(savedEntry);
         }
 
+        fetchRecommendedArticles();
+
         return () => clearInterval(timer);
     }, [selectedDate]);
+
+    const fetchRecommendedArticles = async () => {
+        try {
+            console.log('Fetching articles');
+            const url = '/api/articles/recommendations';
+            console.log('Fetching articles from:', url);
+            const response = await axios.get(url);
+            console.log('Response status:', response.status);
+            console.log('Response data:', response.data);
+            if (Array.isArray(response.data) && response.data.length > 0) {
+                setRecommendedArticles(response.data);
+                console.log('Articles set:', response.data);
+            } else {
+                console.error('Unexpected response format or empty array:', response.data);
+                setRecommendedArticles([]);
+            }
+        } catch (error) {
+            console.error('Error fetching article recommendations:', error);
+            if (error.response) {
+                console.error('Error response:', error.response.data);
+                console.error('Error status:', error.response.status);
+            }
+            setRecommendedArticles([]);
+        }
+    };
 
     const getWeekDays = () => {
         const weekDays = [];
@@ -63,8 +89,7 @@ function Homepage() {
     };
 
     const handleJournalSave = () => {
-        // Save to local storage using selected date as the key
-        localStorage.setItem(selectedDate, journalEntry); 
+        localStorage.setItem(selectedDate, journalEntry);
         alert('Journal saved successfully!');
     };
 
@@ -74,22 +99,13 @@ function Homepage() {
         setJournalEntry(savedEntry || '');
     };
 
-    const dummyInsights = [
-        { id: 1, title: "Article 1", imageUrl: "/600x600_placeholder.png", link: "/article/1" },
-        { id: 2, title: "Meditation 1", imageUrl: "/600x600_placeholder.png", link: "/meditation/1" },
-        { id: 3, title: "Article 2", imageUrl: "/600x600_placeholder.png", link: "/article/2" },
-        { id: 4, title: "Meditation 2", imageUrl: "/600x600_placeholder.png", link: "/meditation/2" },
-        { id: 5, title: "Article 3", imageUrl: "/600x600_placeholder.png", link: "/article/3" },
-        { id: 6, title: "Meditation 3", imageUrl: "/600x600_placeholder.png", link: "/meditation/3" },
-    ];
-
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        arrows: true,  
+        arrows: true,
         responsive: [
             {
                 breakpoint: 1024,
@@ -97,7 +113,7 @@ function Homepage() {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true,
-                    arrows: false  
+                    arrows: false
                 }
             },
             {
@@ -179,16 +195,21 @@ function Homepage() {
             <div className="articles-view p-4">
                 <p className="text-xl">Daily Recommended Insights & Articles</p>
                 <div className='carousel-container max-w-full mx-auto px-4' >
-                    <Slider {...settings} className='my-3'>
-                        {dummyInsights.map(insight => (
-                            <div key={insight.id} className="p-4 flex flex-col items-center">
-                                <img src={insight.imageUrl} alt={insight.title} className="w-full h-48 object-cover mx-auto" />
-                                <h3 className="text-lg text-center font-semibold mt-2">{insight.title}</h3>
-                            </div>
-                        ))}
-                    </Slider>
-                </div>
-            </div>
+                    {recommendedArticles && recommendedArticles.length > 0 ? (
+                        <Slider {...settings} className='my-3'>
+                            {recommendedArticles.map((article, index) => (
+                                <div key={index} className="p-4 flex flex-col items-center">
+                                    <img src="/600x600_placeholder.png" alt={article.title} className="w-full h-48 object-cover mx-auto" />
+                                    <h3 className="text-lg text-center font-semibold mt-2">{article.title}</h3>
+                                    <a href={article.url} target="_blank" rel="noopener noreferrer" className="mt-2 text-blue-500">Read Article</a>
+                                </div>
+                            ))}
+                        </Slider>
+                 ) : (
+            <p>No recommended articles available at the moment.</p>
+        )}
+    </div>
+</div>
         </div>
     );
 }
