@@ -46,22 +46,6 @@ Welcome to SAGE, a mental health companion app designed to support and enhance y
    ```
 8. Go to localhost:3100
 
-## To Run Server (Note that this on reads and copies commands from MySQL to your machine. Data is NOT tranferrable between different machines):
-1. Install and set up MySQL on your machine: https://dev.mysql.com/doc/mysql-getting-started/en/
-2. After connecting to the mysql prompt, create a database: 
-   ```bash
-   CREATE DATABASE team101;
-   ``` 
-3. Then create a user on localhost as per the .env file: 
-   ```bash
-   CREATE USER 'suizz'@'localhost' IDENTIFIED BY 'new_password';
-   ```
-4. Give permissions to the user to manage the database:
-   ```bash
-   GRANT ALL PRIVILEGES ON team101.* TO 'suizz'@'localhost' WITH GRANT OPTION;
-   ```
-5. Run ```FLUSH PRIVILEGES;``` and then you can quit from the mysql prompt using ```exit```.
-6. Make sure that server/.env file exists and that it has team101 set for DB_NAME, password set for DB_PASS and suizz set for DB_USER
 
 ## Contributing
 
