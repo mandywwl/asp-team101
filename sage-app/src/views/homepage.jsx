@@ -206,7 +206,7 @@ function Homepage() {
                             ))}
                         </Slider>
                  ) : (
-            <p>No recommended articles available at the moment.</p>
+            <p>Articles loading, please wait...</p>
         )}
     </div>
 </div>
