@@ -24,7 +24,7 @@ Welcome to SAGE, a mental health companion app designed to support and enhance y
    ```bash
    cd sage-app
    ```
-3. Install dependencies:
+3. Install frontend dependencies:
    ```bash
    npm install
    ```
@@ -36,11 +36,15 @@ Welcome to SAGE, a mental health companion app designed to support and enhance y
    ```bash
    cd server
    ```
-6. Start server:
+6. Install backend dependencies:
+   ```bash
+   npm install
+   ```
+7. Start server:
    ```bash
    npm start
    ```
-7. Go to localhost:3100
+8. Go to localhost:3100
 
 ## To Run Server (Note that this on reads and copies commands from MySQL to your machine. Data is NOT tranferrable between different machines):
 1. Install and set up MySQL on your machine: https://dev.mysql.com/doc/mysql-getting-started/en/
